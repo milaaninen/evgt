@@ -17,6 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const content = document.querySelector(".content-item");
   
     Images.forEach(img => {
+      let isFocused = false; // State to track toggle status
+  
       img.style.transition = "filter 0.4s ease-in-out";
       img.style.filter = "opacity(50%) blur(10px)";
   
@@ -29,14 +31,16 @@ document.addEventListener("DOMContentLoaded", () => {
         removeFocusStyles(img, content);
       });
   
-      // Mobile touch
+      // Mobile touch toggle
       img.addEventListener("touchstart", () => {
-        applyFocusStyles(img, content);
-      });
-  
-      img.addEventListener("touchend", () => {
-        removeFocusStyles(img, content);
-      });
+        if (!isFocused) {
+          applyFocusStyles(img, content);
+          isFocused = true; // Toggle state on
+        } else {
+          removeFocusStyles(img, content);
+          isFocused = false; // Toggle state off
+        }
+      }, { passive: true });
     });
   
     function applyFocusStyles(img, content) {
