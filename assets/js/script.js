@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const index = Array.from(swiperDivs).indexOf(entry.target);
-            number.textContent = index + 1; // Display the current index (1-based)
+            number.textContent = `(${index + 1}.)`;
           }
         });
       },
