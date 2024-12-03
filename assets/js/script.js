@@ -3,6 +3,39 @@ function toggleBio() {
   bioElement.classList.toggle('active');
 }
 
+let isImageMode = true; // State to track the current mode
+
+function switchMode() {
+  const images = document.querySelectorAll('.swiper-slide img');
+  const contentItems = document.querySelectorAll('.content-item');
+
+  if (isImageMode) {
+    // Switch to Text Mode
+    images.forEach(img => {
+      img.style.filter = "opacity(50%) blur(10px)"; // Blur the images
+      img.style.zIndex = "1"; // Send images to the background
+    });
+
+    contentItems.forEach(content => {
+      content.style.zIndex = "999"; // Bring text content to the front
+    });
+
+    isImageMode = false; // Update mode state
+  } else {
+    // Switch to Image Mode
+    images.forEach(img => {
+      img.style.filter = "opacity(1) blur(0)"; // Unblur the images
+      img.style.zIndex = "999"; // Bring images to the front
+    });
+
+    contentItems.forEach(content => {
+      content.style.zIndex = "1"; // Send text content to the background
+    });
+
+    isImageMode = true; // Update mode state
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const menuDiv = document.querySelector('.menu');
   const contentDiv = document.querySelector('.content');
@@ -15,46 +48,36 @@ document.addEventListener("DOMContentLoaded", () => {
   function setupImageHover() {
     const Images = document.querySelectorAll('.swiper-slide img');
     const content = document.querySelector(".content-item");
-  
+
     Images.forEach(img => {
       let isFocused = false; // State to track toggle status
-  
+
       img.style.transition = "filter 0.4s ease-in-out";
       img.style.filter = "opacity(50%) blur(10px)";
-  
+
       // Desktop hover
       img.addEventListener("mouseenter", () => {
         applyFocusStyles(img, content);
       });
-  
+
       img.addEventListener("mouseleave", () => {
         removeFocusStyles(img, content);
       });
     });
 
-    swiperWrapper.addEventListener("touchstart", () => {
-      if (!isFocused) {
-        applyFocusStyles(img, content);
-        isFocused = true; // Toggle state on
-      } else {
-        removeFocusStyles(img, content);
-        isFocused = false; // Toggle state off
-      }
-    }, { passive: true });
-  
     function applyFocusStyles(img, content) {
       img.style.zIndex = "999";
       img.style.filter = "opacity(1) blur(0)";
       content.style.zIndex = "1";
     }
-  
+
     function removeFocusStyles(img, content) {
       img.style.zIndex = "1";
       img.style.filter = "opacity(50%) blur(10px)";
       content.style.zIndex = "999";
     }
   }
-  
+
 
   // Function to initialize the swiper and number indexing
   function setupSwiperAndNumber() {
@@ -136,7 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
         menuItemDiv.dataset.index = index;
         menuDiv.appendChild(menuItemDiv);
       });
-      
+
       // Add event listeners to menu items
       menuDiv.addEventListener('click', (event) => {
         if (media.matches) {
