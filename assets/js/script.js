@@ -30,18 +30,17 @@ document.addEventListener("DOMContentLoaded", () => {
       img.addEventListener("mouseleave", () => {
         removeFocusStyles(img, content);
       });
-  
-      // Mobile touch toggle
-      img.addEventListener("touchstart", () => {
-        if (!isFocused) {
-          applyFocusStyles(img, content);
-          isFocused = true; // Toggle state on
-        } else {
-          removeFocusStyles(img, content);
-          isFocused = false; // Toggle state off
-        }
-      }, { passive: true });
     });
+
+    swiperWrapper.addEventListener("touchstart", () => {
+      if (!isFocused) {
+        applyFocusStyles(img, content);
+        isFocused = true; // Toggle state on
+      } else {
+        removeFocusStyles(img, content);
+        isFocused = false; // Toggle state off
+      }
+    }, { passive: true });
   
     function applyFocusStyles(img, content) {
       img.style.zIndex = "999";
