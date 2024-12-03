@@ -18,6 +18,7 @@ function switchMode() {
 
     contentItems.forEach(content => {
       content.style.zIndex = "999"; // Bring text content to the front
+      content.style.filter = "blur(0)"
     });
 
     isImageMode = false; // Update mode state
@@ -30,6 +31,7 @@ function switchMode() {
 
     contentItems.forEach(content => {
       content.style.zIndex = "1"; // Send text content to the background
+      content.style.filter = "blur(3px)"
     });
 
     isImageMode = true; // Update mode state
@@ -50,8 +52,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const content = document.querySelector(".content-item");
 
     Images.forEach(img => {
-      let isFocused = false; // State to track toggle status
-
       img.style.transition = "filter 0.4s ease-in-out";
       img.style.filter = "opacity(50%) blur(10px)";
 

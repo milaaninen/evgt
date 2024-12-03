@@ -219,7 +219,8 @@ summary {}
 
 .content-item {
   z-index: 999;
-  position: relative;;
+  position: relative;
+  ;
   display: block;
 }
 
@@ -339,6 +340,15 @@ img:hover {
 
 @media (max-width: 779px) {
 
+  footer {
+    display: flex;
+    width: 100%;
+  }
+
+  footer div {
+    width: 40%;
+  }
+
   .bio {
     position: fixed;
   }
@@ -371,10 +381,10 @@ img:hover {
     transition: transform 1s ease-in-out;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
-    grid-template-areas: 
-    "menu content"
-    "menu content"
-    "menu content";
+    grid-template-areas:
+      "menu content"
+      "menu content"
+      "menu content";
     /* overflow-x: hidden; */
   }
 
@@ -399,12 +409,12 @@ img:hover {
     left: 0;
     top: 0;
     margin: 0;
-  } 
+  }
 
   .menu {
     /* background-color: aqua; */
     width: 100vw;
-  } 
+  }
 
   .content {
     width: 100vw;
