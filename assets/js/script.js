@@ -21,6 +21,7 @@ function switchMode() {
       content.style.transition = "filter 0.4s ease-in-out";
       content.style.zIndex = "999"; // Bring text content to the front
       content.style.filter = "blur(0)"
+      content.style.opacity = "1"
     });
 
     isImageMode = false; // Update mode state
@@ -34,6 +35,7 @@ function switchMode() {
     contentItems.forEach(content => {
       content.style.zIndex = "1"; // Send text content to the background
       content.style.filter = "blur(3px)"
+      content.style.opacity = "0.4"
     });
 
     isImageMode = true; // Update mode state
@@ -52,38 +54,38 @@ document.addEventListener("DOMContentLoaded", () => {
   function setupImageHover() {
     const Images = document.querySelectorAll('.swiper-slide img');
     const content = document.querySelector(".content-item");
-  
+
     // Check if the viewport is at least 779px wide
     const mediaQuery = window.matchMedia("(min-width: 779px)");
-  
+
     if (mediaQuery.matches) {
       // Add hover functionality for desktops
       Images.forEach(img => {
         img.style.transition = "filter 0.4s ease-in-out";
         img.style.filter = "opacity(50%) blur(10px)";
-  
+
         img.addEventListener("mouseenter", () => {
           applyFocusStyles(img, content);
         });
-  
+
         img.addEventListener("mouseleave", () => {
           removeFocusStyles(img, content);
         });
       });
     }
-  
+
     function applyFocusStyles(img, content) {
       img.style.zIndex = "999";
       img.style.filter = "opacity(1) blur(0)";
       content.style.zIndex = "1";
     }
-  
+
     function removeFocusStyles(img, content) {
       img.style.zIndex = "1";
       img.style.filter = "opacity(50%) blur(10px)";
       content.style.zIndex = "999";
     }
-  }  
+  }
 
   // Function to initialize the swiper and number indexing
   function setupSwiperAndNumber() {
@@ -107,10 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Initialize Swiper
     new Swiper('.swiper', {
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
+      navigation: { nextEl: '.slick-next', prevEl: '.slick-prev' },
       keyboard: {
         enabled: true,
         onlyInViewport: true,

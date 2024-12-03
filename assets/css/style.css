@@ -309,6 +309,39 @@ img:hover {
   mix-blend-mode: none;
 }
 
+.slick-prev,
+.slick-next {
+  z-index: 999;
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 30%;
+  /* background-color: transparent; */
+  /* color: #fff; */
+  border: none;
+  cursor: none;
+  padding: 0;
+  font-size: 2em;
+}
+
+
+.slick-prev {
+  left: 20%;
+}
+
+.slick-next {
+  right: 20%;
+}
+
+.slick-prev:hover {
+  cursor: w-resize;
+}
+
+.slick-next:hover {
+  cursor: e-resize;
+}
+
 .content-number {
   position: absolute;
   font-size: 10rem;
