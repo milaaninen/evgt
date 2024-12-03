@@ -252,10 +252,11 @@ summary {}
 
 .number {
   position: fixed;
+  bottom: 0;
   /* text-align: center; */
   grid-area: number;
   align-self: flex-end;
-  bottom: 28vh;
+  /* bottom: 28vh; */
   /* font-size: 10rem; */
 }
 
@@ -342,7 +343,7 @@ img:hover {
 
   footer {
     display: flex;
-    width: 100%;
+    width: 100vw;
   }
 
   footer div {
@@ -354,7 +355,8 @@ img:hover {
   }
 
   .number {
-    bottom: 0;
+    position: fixed !important;
+    bottom: 0 !important;
   }
 
   .menu-right {

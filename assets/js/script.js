@@ -12,11 +12,13 @@ function switchMode() {
   if (isImageMode) {
     // Switch to Text Mode
     images.forEach(img => {
+      img.style.transition = "filter 0.4s ease-in-out";
       img.style.filter = "opacity(50%) blur(10px)"; // Blur the images
       img.style.zIndex = "1"; // Send images to the background
     });
 
     contentItems.forEach(content => {
+      content.style.transition = "filter 0.4s ease-in-out";
       content.style.zIndex = "999"; // Bring text content to the front
       content.style.filter = "blur(0)"
     });
@@ -50,34 +52,38 @@ document.addEventListener("DOMContentLoaded", () => {
   function setupImageHover() {
     const Images = document.querySelectorAll('.swiper-slide img');
     const content = document.querySelector(".content-item");
-
-    Images.forEach(img => {
-      img.style.transition = "filter 0.4s ease-in-out";
-      img.style.filter = "opacity(50%) blur(10px)";
-
-      // Desktop hover
-      img.addEventListener("mouseenter", () => {
-        applyFocusStyles(img, content);
+  
+    // Check if the viewport is at least 779px wide
+    const mediaQuery = window.matchMedia("(min-width: 779px)");
+  
+    if (mediaQuery.matches) {
+      // Add hover functionality for desktops
+      Images.forEach(img => {
+        img.style.transition = "filter 0.4s ease-in-out";
+        img.style.filter = "opacity(50%) blur(10px)";
+  
+        img.addEventListener("mouseenter", () => {
+          applyFocusStyles(img, content);
+        });
+  
+        img.addEventListener("mouseleave", () => {
+          removeFocusStyles(img, content);
+        });
       });
-
-      img.addEventListener("mouseleave", () => {
-        removeFocusStyles(img, content);
-      });
-    });
-
+    }
+  
     function applyFocusStyles(img, content) {
       img.style.zIndex = "999";
       img.style.filter = "opacity(1) blur(0)";
       content.style.zIndex = "1";
     }
-
+  
     function removeFocusStyles(img, content) {
       img.style.zIndex = "1";
       img.style.filter = "opacity(50%) blur(10px)";
       content.style.zIndex = "999";
     }
-  }
-
+  }  
 
   // Function to initialize the swiper and number indexing
   function setupSwiperAndNumber() {
