@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+	<!-- meta tags, fill them with website meta infos -->
+	<meta name="description" content="Description of your web page" />
+	<meta name="keywords" content="Keyword 1, Keyword 2, Keyword 3, Keyword 4, Keyword 5 ..." />
+	<meta name="author" content="Name of the author/owner of the webpage's content" />
+
+	<!-- favicon, fill with a 512x512px .png image named 'favicon.png' -->
+	<link rel="icon" href="assets/images/favicon/favicon.png" />
+
+	<!-- website title, visible in the browser window and on link sharing -->
+	<title>Website title</title>
+
+	<!-- links for extensions and dependencies -->
+
+	<!-- css -->
+	<!-- first link your CSS dependences, here is normalize, a CSS 'reset' for cross-browser appearence uniformity -->
+	<link rel="stylesheet" href="assets/css/normalize.css">
+	<!-- you stylesheet -->
+	<link rel="stylesheet" href="assets/css/style.css?ver=1.0">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+	<!-- js -->
+	<!-- first link your javascript dependencies, here as an example is Jquery -->
+	<script type="text/javascript" src="assets/js/jquery-3.6.0.min.js"></script>
+	<!-- your function scripts -->
+	<script type="text/javascript" src="assets/js/script.js?ver=1.0"></script>
+	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inview/1.0.0/jquery.inview.js"
+		integrity="sha512-iT74C80IPqrdN648Fgydf0UT02BzECMIx/ZMZJq11CqjhGCWmRt87vJJW4pASVPFJFfMG21xHyy7KG40oHt4cg=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+
+</head>
+
+<body>
+
+	<!-- webpage content goes here -->
+
+	<div class="page-wrapper">
+
+		<header>
+
+			<div class="menu-right" style="margin-bottom: 0.4rem;">
+				<a style="text-decoration: none; color: black;" href="index.html"><div class="menu-item">Index/<span style="text-decoration: underline;">Grid</span></div></a>
+				<!-- <div class="menu-item">About Einar</div> -->
+			</div>
+
+			<!-- <h1> Hello World!</h1>
+			<p>A <strong>document</strong> by <em>me</em></p> -->
+
+			<!-- <nav>
+					<ul>
+						<li><a href="#intro">Intro</a></li>
+						<li><a href="#chapter-1">Chapter 1</a></li>
+						<li><a href="#chapter-2">Chapter 2</a></li>
+						<li><a href="#chapter-3">Chapter 3</a></li>
+						<li><a href="#epilogue">Epilogue</a></li>
+					</ul>
+				</nav> -->
+
+		</header>
+
+		<main>
+			<div class="container">
+				<div class="artwork">
+					<div class="overlay">
+						<div class="title">(a.) Title<br>
+							<p>This is the title</p>
+						</div>
+					</div>
+					<img src="assets/images/2024_portfolio_files/editorial/texture/texture_1.jpg">
+				</div>
+				<div class="artwork">
+					<div class="overlay">
+						<div class="title">(a.) Title<br>
+							<p>This is the title</p>
+						</div>
+					</div>
+					<img src="assets/images/2024_portfolio_files/editorial/texture/texture_1.jpg">
+				</div>
+				<div class="artwork">
+					<div class="overlay">
+						<div class="title">(a.) Title<br>
+							<p>This is the title</p>
+						</div>
+					</div>
+					<img src="assets/images/2024_portfolio_files/editorial/texture/texture_1.jpg">
+				</div>
+				<div class="artwork">
+					<div class="overlay">
+						<div class="title">(a.) Title<br>
+							<p>This is the title</p>
+						</div>
+					</div>
+					<img src="assets/images/2024_portfolio_files/editorial/texture/texture_1.jpg">
+				</div>
+				<div class="artwork">
+					<div class="overlay">
+						<div class="title">(a.) Title<br>
+							<p>This is the title</p>
+						</div>
+					</div>
+					<img src="assets/images/2024_portfolio_files/editorial/texture/texture_1.jpg">
+				</div>
+			</div>
+		</main>
+
+
+
+		<footer>
+
+			<!-- <hr> -->
+
+			<p class="back">
+				back
+			</p>
+
+		</footer>
+
+
+
+	</div>
+
+
+
+	<!-- end webpage content -->
+
+
+
+</body>
+
+<style>
+	.container {
+		width: 100vw;
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.artwork {
+		position: relative;
+		width: 50%;
+		/* border: 1pt greenyellow solid; */
+		box-sizing: border-box;
+		transition: border 0.2s ease-in;
+		/* Keep the image and overlay inline */
+		/* background-color: greenyellow; */
+	}
+
+	/* .artwork:hover {
+		border: 2pt darkorange solid;
+	} */
+
+	.artwork p {
+		margin-left: 1rem !important;
+		margin: 0;
+		padding: 0;
+	}
+
+	.artwork img {
+		display: block;
+		filter: blur(10px);
+		max-width: 100%;
+		transition: filter 0.4s ease-in-out;
+	}
+
+	.artwork:hover img {
+		filter: blur(0)
+	}
+
+	.overlay {
+		position: absolute;
+		z-index: 999;
+		/* Position relative to the parent */
+		width: 100%;
+		/* Cover the entire width of the image */
+		height: 100%;
+		/* Cover the entire height of the image */
+	}
+
+	.title {
+		position: sticky;
+		top: 0;
+	}
+
+	footer {
+		display: none;
+	}
+
+	@media (max-width: 779px) {
+		.artwork {
+			width: 100%;
+		}
+	}
+</style>
+
+</html>
