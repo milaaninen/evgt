@@ -398,6 +398,7 @@ img:hover {
 
   .content {
     width: 100vw;
+    pointer-events: none;
     /* background-color: blue; */
   }
 
