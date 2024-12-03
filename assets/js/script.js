@@ -10,31 +10,48 @@ document.addEventListener("DOMContentLoaded", () => {
   const number = document.querySelector('.number');
   const container = document.querySelector('.container');
   const back = document.querySelector('.back');
-
   var media = window.matchMedia("(max-width: 779px)")
-
 
   function setupImageHover() {
     const Images = document.querySelectorAll('.swiper-slide img');
     const content = document.querySelector(".content-item");
-
+  
     Images.forEach(img => {
       img.style.transition = "filter 0.4s ease-in-out";
       img.style.filter = "opacity(50%) blur(10px)";
-
+  
+      // Desktop hover
       img.addEventListener("mouseenter", () => {
-        img.style.zIndex = "999";
-        img.style.filter = "opacity(1) blur(0)";
-        content.style.zIndex = "1";
+        applyFocusStyles(img, content);
       });
-
+  
       img.addEventListener("mouseleave", () => {
-        img.style.zIndex = "1";
-        img.style.filter = "opacity(50%) blur(10px)";
-        content.style.zIndex = "999";
+        removeFocusStyles(img, content);
+      });
+  
+      // Mobile touch
+      img.addEventListener("touchstart", () => {
+        applyFocusStyles(img, content);
+      });
+  
+      img.addEventListener("touchend", () => {
+        removeFocusStyles(img, content);
       });
     });
+  
+    function applyFocusStyles(img, content) {
+      img.style.zIndex = "999";
+      img.style.filter = "opacity(1) blur(0)";
+      content.style.zIndex = "1";
+    }
+  
+    function removeFocusStyles(img, content) {
+      img.style.zIndex = "1";
+      img.style.filter = "opacity(50%) blur(10px)";
+      content.style.zIndex = "999";
+    }
   }
+  
 
   // Function to initialize the swiper and number indexing
   function setupSwiperAndNumber() {
@@ -116,7 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
         menuItemDiv.dataset.index = index;
         menuDiv.appendChild(menuItemDiv);
       });
-
+      
       // Add event listeners to menu items
       menuDiv.addEventListener('click', (event) => {
         if (media.matches) {
