@@ -166,6 +166,7 @@ summary {}
   overflow: hidden;
   height: 0;
   background-color: white;
+  /* background-color: white; */
   position: absolute;
   z-index: 999;
   width: 100%;
@@ -173,7 +174,9 @@ summary {}
 }
 
 .bio.active {
-  height: 300%;
+  transition: height 0.4s ease-in-out;
+  height: 100%;
+  backdrop-filter: blur(10px);
 }
 
 .container {
@@ -257,7 +260,7 @@ summary {}
 
 .number {
   position: fixed;
-  bottom: 0;
+  bottom: 0 !important;
   /* text-align: center; */
   grid-area: number;
   align-self: flex-end;
@@ -311,11 +314,6 @@ img {
   height: 100%;
   margin: auto;
   /* width: 96%; */
-}
-
-img:hover {
-  /* filter: opacity(1) blur(0); */
-  mix-blend-mode: none;
 }
 
 .slick-prev,
@@ -410,6 +408,14 @@ img:hover {
 
   .bio {
     position: fixed;
+    /* transform: translateX(-100%); */
+  }
+
+  .bio.active {
+    position: fixed;
+    transition: height 0.4s ease-in-out;
+    height: 100%;
+    backdrop-filter: blur(10px);
   }
 
   .number {
@@ -457,11 +463,11 @@ img:hover {
     /* display: none; */
   }
 
-  .swiper:hover img {
+  /* .swiper:hover img {
     z-index: 999;
     filter: blur(0);
     opacity: 1;
-  }
+  } */
 
   .content-image {
     transform: translateX(100%);

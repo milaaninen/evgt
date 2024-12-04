@@ -1,6 +1,9 @@
 function toggleBio() {
   const bioElement = document.querySelector('.bio');
   bioElement.classList.toggle('active');
+  if (isImageMode) {
+    switchMode(); // Automatically switch to Text Mode when bio is toggled
+  }
 }
 
 let isImageMode = true; // State to track the current mode
@@ -56,7 +59,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const number = document.querySelector('.number');
   const container = document.querySelector('.container');
   const back = document.querySelector('.back');
-  var media = window.matchMedia("(max-width: 779px)")
+  var media = window.matchMedia("(max-width: 779px)");
+  switchMode();
 
   function setupImageHover() {
     const Images = document.querySelectorAll('.swiper-slide img');
@@ -176,6 +180,7 @@ document.addEventListener("DOMContentLoaded", () => {
       menuDiv.addEventListener('click', (event) => {
         if (media.matches) {
           container.style.transform = "translateX(-100%)"
+          switchMode(); 
         }
         if (event.target.classList.contains('menu-item')) {
           const index = event.target.dataset.index;
