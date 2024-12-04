@@ -61,6 +61,10 @@ body {
   width: 100%;
   height: auto;
   overflow-y: auto;
+  /* overflow-x: hidden; */
+}
+
+main {
   overflow-x: hidden;
 }
 
@@ -386,9 +390,9 @@ img:hover {
 
 @media (max-width: 779px) {
 
-  body {
+  /* body {
     overflow-x: hidden;
-  }
+  } */
 
   .slick-prev,
   .slick-next {
