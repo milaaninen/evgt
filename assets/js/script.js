@@ -58,7 +58,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const back = document.querySelector('.back');
   var media = window.matchMedia("(max-width: 779px)")
 
-
   function setupImageHover() {
     const Images = document.querySelectorAll('.swiper-slide img');
     const content = document.querySelector(".content-item");
