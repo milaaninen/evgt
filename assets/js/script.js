@@ -8,9 +8,14 @@ let isImageMode = true; // State to track the current mode
 function switchMode() {
   const images = document.querySelectorAll('.swiper-slide img');
   const contentItems = document.querySelectorAll('.content-item');
+  const text = document.getElementById("text")
+  const image = document.getElementById("image")
 
   if (isImageMode) {
     // Switch to Text Mode
+    text.style.textDecoration = "underline"
+    image.style.textDecoration = "none"
+
     images.forEach(img => {
       img.style.transition = "filter 0.4s ease-in-out";
       img.style.filter = "opacity(50%) blur(10px)"; // Blur the images
@@ -26,6 +31,8 @@ function switchMode() {
 
     isImageMode = false; // Update mode state
   } else {
+    text.style.textDecoration = "none"
+    image.style.textDecoration = "underline"
     // Switch to Image Mode
     images.forEach(img => {
       img.style.filter = "opacity(1) blur(0)"; // Unblur the images
@@ -50,6 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const container = document.querySelector('.container');
   const back = document.querySelector('.back');
   var media = window.matchMedia("(max-width: 779px)")
+
 
   function setupImageHover() {
     const Images = document.querySelectorAll('.swiper-slide img');
