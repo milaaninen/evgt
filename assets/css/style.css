@@ -386,6 +386,10 @@ img:hover {
 
 @media (max-width: 779px) {
 
+  body {
+    overflow-x: hidden;
+  }
+
   .slick-prev,
   .slick-next {
     display: none;
