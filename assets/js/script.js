@@ -1,7 +1,8 @@
 function toggleBio() {
+  var media = window.matchMedia("(max-width: 779px)");
   const bioElement = document.querySelector('.bio');
   bioElement.classList.toggle('active');
-  if (isImageMode) {
+  if (isImageMode && media.matches) {
     switchMode(); // Automatically switch to Text Mode when bio is toggled
   }
 }
@@ -60,14 +61,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const container = document.querySelector('.container');
   const back = document.querySelector('.back');
   var media = window.matchMedia("(max-width: 779px)");
-  switchMode();
+  // switchMode();
 
   function setupImageHover() {
     const Images = document.querySelectorAll('.swiper-slide img');
     const content = document.querySelector(".content-item");
 
     // Check if the viewport is at least 779px wide
-    const mediaQuery = window.matchMedia("(min-width: 779px)");
+    var mediaQuery = window.matchMedia("(min-width: 779px)");
 
     if (mediaQuery.matches) {
       // Add hover functionality for desktops
@@ -106,7 +107,11 @@ document.addEventListener("DOMContentLoaded", () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const index = Array.from(swiperDivs).indexOf(entry.target);
-            number.textContent = `(${index + 1}.)`;
+            if (media.matches) {
+              number.textContent = `(${index + 1}.)`;
+            } else { 
+              number.textContent = `drag mouse to scroll\n(${index + 1}.)`;
+            }
           }
         });
       },
@@ -120,7 +125,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Initialize Swiper
     new Swiper('.swiper', {
-      navigation: { nextEl: '.slick-next', prevEl: '.slick-prev' },
+      // navigation: { 
+      //   nextEl: '.swiper-button-next', 
+      //   prevEl: '.swiper-button-prev', 
+      // },
       keyboard: {
         enabled: true,
         onlyInViewport: true,
@@ -179,13 +187,19 @@ document.addEventListener("DOMContentLoaded", () => {
       // Add event listeners to menu items
       menuDiv.addEventListener('click', (event) => {
         if (media.matches) {
-          container.style.transform = "translateX(-100%)"
-          switchMode(); 
+          container.style.transform = "translateX(-100%)";
+          switchMode();
         }
+      
+        // Check if the menu item was clicked and update content
         if (event.target.classList.contains('menu-item')) {
           const index = event.target.dataset.index;
           updateContent(data[index]);
         }
+      
+        // Ensure mode is set to Image Mode when the menuDiv is clicked
+        isImageMode = true; // Set the mode to Image
+        switchMode(); // Apply the mode change
       });
 
       // Load the first item by default

@@ -306,6 +306,16 @@ summary {}
   display: none;
 }
 
+.swiper-button-prev {
+  color: black !important;
+  margin-bottom: 0;
+  /* background-color: aquamarine; */
+}
+
+.swiper-button-next {
+  color: black !important;
+}
+
 img {
   /* filter: opacity(50%) blur(10px); */
   /* transition: filter 0.4s ease-in-out; */
@@ -314,45 +324,6 @@ img {
   height: 100%;
   margin: auto;
   /* width: 96%; */
-}
-
-.slick-prev,
-.slick-next {
-  z-index: 999; /* Keep above images but manageable */
-  background-color: transparent;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 50px; /* Limit the clickable area */
-  height: 50px;
-  border: none;
-  cursor: pointer;
-  pointer-events: auto; /* Ensure buttons are functional */
-}
-
-.slick-prev {
-  left: 10px;
-}
-
-.slick-next {
-  right: 10px;
-}
-
-
-.slick-prev {
-  left: 20%;
-}
-
-.slick-next {
-  right: 20%;
-}
-
-.slick-prev:hover {
-  cursor: w-resize;
-}
-
-.slick-next:hover {
-  cursor: e-resize;
 }
 
 .content-number {
@@ -460,6 +431,8 @@ img {
 
   img {
     max-width: 100%;
+    /* filter: blur(10px) opacity(50%); */
+    /* transition: filter 0.4s ease-in-out; */
     /* display: none; */
   }
 
@@ -488,7 +461,8 @@ img {
 
   .content {
     width: 100vw;
-    pointer-events: none;
+    /* pointer-events: none; */
+    /* transition: filter 0.4s ease-in-out; */
     /* background-color: blue; */
   }
 
