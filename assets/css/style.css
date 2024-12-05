@@ -11,8 +11,8 @@
 */
 
 @font-face {
-  font-family: 'Your Font Name';
-  src: url('../fonts/yourfontname/yourfontname-roman.woff2');
+  font-family: 'Charter';
+  src: url('assets/fonts/charter/Charter/charter_regular.woff2');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -26,8 +26,6 @@
   font-display: block;
 }
 
-
-
 /* VARIABLES */
 
 :root {
@@ -37,7 +35,9 @@
   --color-text-link: rgba(0, 0, 255, 0.8);
   --color-text-link-hover: rgba(0, 0, 255, 0.4);
   /* Font values */
-  --font-family: 'Your Font Name', 'Helvetica', 'Arial', sans-serif;
+  /* --font-family: "Cormorant Garamond", serif; */
+  /* --font-family: 'Charter', 'Helvetica', 'Arial', sans-serif; */
+  --font-family: "Parkinsans", serif;
   --font-size: 12pt;
   /* Margin value */
   /* --margin: 1rem; */
@@ -60,6 +60,7 @@ body {
   color: var(--color-text);
   width: 100%;
   height: auto;
+  line-height: 14.4pt;
   /* overflow-y: auto; */
   /* overflow-x: hidden; */
 }
@@ -264,6 +265,7 @@ summary {}
 
 .info {
   grid-area: info;
+  padding-right: 1rem;
   /* background-color: green; */
 }
 
@@ -471,7 +473,7 @@ img {
 
   .content {
     width: 100vw;
-    height: 80vh;
+    /* height: 100%; */
     position: relative;
     /* pointer-events: none; */
     /* transition: filter 0.4s ease-in-out; */
