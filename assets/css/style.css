@@ -334,6 +334,9 @@ img {
   bottom: 0;
 }
 
+.back {
+  display: none;
+}
 
 
 
@@ -414,6 +417,7 @@ img {
   }
 
   .back {
+    display: block;
     padding-right: 0.4rem;
     margin-bottom: auto;
     z-index: 999;
