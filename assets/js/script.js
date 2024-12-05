@@ -62,6 +62,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const back = document.querySelector('.back');
   var media = window.matchMedia("(max-width: 779px)");
 
+  media.addEventListener('change', () => {
+    location.reload();
+});
+
+
   function setupImageHover() {
     const Images = document.querySelectorAll('.swiper-slide img');
     const content = document.querySelector(".content-item")
@@ -191,6 +196,14 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (event.target.classList.contains('menu-item')) {
+          // Remove underline from all menu items
+          document.querySelectorAll('.menu-item').forEach(item => {
+            item.style.textDecoration = "none";
+          });
+
+          // Add underline to the selected menu item
+          event.target.style.textDecoration = "underline";
+
           const index = event.target.dataset.index;
           updateContent(data[index]);
         }

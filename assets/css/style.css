@@ -87,7 +87,7 @@ header {
 header p {
   margin: 0;
   padding: 0;
-  text-align: center;
+  /* text-align: center; */
 }
 
 footer {
@@ -163,13 +163,13 @@ main {}
 summary {}
 
 .bio {
+  grid-area: bio;
   overflow: hidden;
   height: 0;
-  background-color: white;
+  right: 0;
+  text-align: left !important;
   /* background-color: white; */
-  position: absolute;
   z-index: 999;
-  width: 100%;
   transition: height 0.4s ease-in-out;
 }
 
@@ -179,16 +179,20 @@ summary {}
   backdrop-filter: blur(10px);
 }
 
+.switch {
+  display: none;
+}
+
 .container {
   /* background-color: brown; */
   transform: translateX(0);
   display: grid;
-  grid-template-columns: 1fr 1.2fr 1fr;
+  grid-template-columns: 1.2fr 1.6fr 1.2fr;
   grid-template-rows: 1fr;
   gap: 0px 0px;
   grid-auto-flow: row;
   grid-template-areas:
-    "menu content";
+    "menu content bio";
   /* max-height: 90vh; */
 }
 
@@ -212,11 +216,16 @@ summary {}
   cursor: pointer;
 }
 
-.menu-right {
-  grid-area: menu-right;
+.menu-top {
+  grid-area: menu-top;
   z-index: 10;
   display: grid;
-  grid-template-columns: 1fr 1.2fr 1fr;
+  grid-template-columns: 1.2fr 1.6fr 1.2fr;
+}
+
+.menu-top .menu-item:nth-last-of-type(2) {
+  text-align: right;
+  padding-right: 0.4rem;
 }
 
 .content {
@@ -277,10 +286,6 @@ summary {}
   position: absolute;
 }
 
-.content-image .menu-right {
-  display: none;
-}
-
 .swiper {
   height: 100%;
 }
@@ -289,8 +294,10 @@ summary {}
   display: flex !important;
   justify-content: center;
   align-items: center;
-  width: 100%; /* Or a specific percentage */
-  height: auto; /* Or a fixed height */
+  width: 100%;
+  /* Or a specific percentage */
+  height: auto;
+  /* Or a fixed height */
 }
 
 .swiper-scrollbar {
@@ -362,26 +369,31 @@ img {
     display: none;
   }
 
-
   footer {
-    display: flex;
-    width: 100vw;
+    margin: 0;
+    padding: 0;
   }
 
   footer div {
-    width: 40%;
+    width: 50%;
+    top: 0;
   }
 
   .bio {
     position: fixed;
+    top: 0;
+    left: 0;
     /* transform: translateX(-100%); */
   }
 
   .bio.active {
-    position: fixed;
     transition: height 0.4s ease-in-out;
     height: 100%;
     backdrop-filter: blur(10px);
+  }
+
+  .switch {
+    display: block;
   }
 
   .number {
@@ -389,14 +401,14 @@ img {
     bottom: 0 !important;
   }
 
-  .menu-right {
-    grid-area: menu-right;
+  .menu-top {
+    grid-area: menu-top;
     z-index: 10;
     display: flex !important;
     justify-content: space-between;
   }
 
-  .menu-right .menu-item:nth-last-of-type(1) {
+  .menu-top .menu-item:nth-last-of-type(1) {
     padding-right: 0.4rem;
   }
 
@@ -441,7 +453,7 @@ img {
     transform: translateX(100%);
   }
 
-  .menu-right {
+  .menu-top {
     width: 100vw;
     z-index: 999;
     left: 0;
