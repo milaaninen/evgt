@@ -233,7 +233,7 @@ summary {}
 .content {
   position: relative;
   grid-area: content;
-  height: 95vh;
+  height: calc(var(--vh, 1vh) * 100 - 21px);
 }
 
 .content-item {
