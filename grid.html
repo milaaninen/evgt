@@ -146,57 +146,72 @@
 
 <style>
 	.container {
-  width: 100vw;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px; /* Optional: Adds space between containers */
-}
+		width: 100vw;
+		display: flex;
+		flex-wrap: wrap;
+	}
 
-.artwork {
-  position: relative;
-  width: 50%; /* Default: Two items per row on desktop */
-  box-sizing: border-box;
-  transition: border 0.2s ease-in;
-}
+	.artwork {
+		position: relative;
+		width: 50%;
+		/* border: 1pt greenyellow solid; */
+		box-sizing: border-box;
+		transition: border 0.2s ease-in;
+		/* Keep the image and overlay inline */
+		/* background-color: greenyellow; */
+	}
 
-.artwork img {
-  display: block;
-  filter: blur(10px);
-  max-width: 100%;
-  transition: filter 0.4s ease-in-out;
-}
+	/* .artwork:hover {
+		border: 2pt darkorange solid;
+	} */
 
-.artwork:hover img {
-  filter: blur(0);
-}
+	.artwork p {
+		margin-left: 1rem !important;
+		margin: 0;
+		padding: 0;
+	}
 
-.overlay {
-  position: absolute;
-  z-index: 999;
-  width: 100%;
-  height: 100%;
-}
+	.artwork img {
+		display: block;
+		filter: blur(10px);
+		max-width: 100%;
+		transition: filter 0.4s ease-in-out;
+	}
 
-.title {
-  position: sticky;
-  top: 0;
-}
+	.artwork:hover img {
+		filter: blur(0)
+	}
 
-footer {
-  display: none;
-}
+	.overlay {
+		position: absolute;
+		z-index: 999;
+		/* Position relative to the parent */
+		width: 100%;
+		/* Cover the entire width of the image */
+		height: 100%;
+		/* Cover the entire height of the image */
+	}
 
-@media (max-width: 779px) {
-  /* Mobile styles */
-  .artwork {
-    width: 100%; /* Full width */
-    height: auto; /* Flexible height based on content */
-  }
+	.title {
+		position: sticky;
+		top: 0;
+	}
 
-  .artwork img {
-    filter: blur(0); /* Remove blur on mobile */
-  }
-}
+	footer {
+		display: none;
+	}
+
+	@media (max-width: 779px) {
+		.artwork {
+			width: 100%;
+			height: auto;
+		}
+
+		.artwork img {
+			filter: blur(0);
+			height: 100%;
+		}
+	}
 </style>
 
 </html>
