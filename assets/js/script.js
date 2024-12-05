@@ -1,9 +1,13 @@
 function toggleBio() {
   var media = window.matchMedia("(max-width: 779px)");
   const bioElement = document.querySelector('.bio');
+  const container = document.querySelector('.container');
   bioElement.classList.toggle('active');
   if (isImageMode && media.matches) {
     switchMode();
+  }
+  if (container.style.transform = 'translateX(-100%)') {
+    container.style.transform = "translateX(0)"
   }
 }
 
