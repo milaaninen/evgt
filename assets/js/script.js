@@ -13,12 +13,15 @@ function toggleBio() {
 
 let isImageMode = true;
 let swiper;
+let vh = window.innerHeight * 0.01;
+// Then we set the value in the --vh custom property to the root of the document
 
 function switchMode() {
   const images = document.querySelectorAll('.swiper-slide img');
   const contentItems = document.querySelectorAll('.content-item');
   const text = document.getElementById("text");
   const image = document.getElementById("image");
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
 
   if (isImageMode) {
     text.style.textDecoration = "underline";

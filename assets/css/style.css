@@ -474,7 +474,7 @@ img {
 
   .content {
     width: 100vw;
-    height: 80vh;
+    height: calc(var(--vh, 1vh) * 100 - 21px);
     position: relative;
     /* pointer-events: none; */
     /* transition: filter 0.4s ease-in-out; */
