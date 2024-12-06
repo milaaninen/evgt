@@ -267,7 +267,7 @@
 	function setupIntersectionObserver() {
 		const observerOptions = {
 			root: null, // Use the viewport as the root
-			threshold: 0.9 // Trigger when 90% of the element is in view
+			threshold: 1 // Trigger when 90% of the element is in view
 		};
 
 		const observer = new IntersectionObserver((entries) => {
@@ -310,9 +310,9 @@
 	enableMobileObserver();
 
 	// Recheck on resize to dynamically add/remove functionality
-	window.addEventListener('resize', () => {
-		location.reload(); // Reload the page to reset the observer for updated screen size
-	});
+	// window.addEventListener('resize', () => {
+	// 	location.reload(); // Reload the page to reset the observer for updated screen size
+	// });
 
 
 </script>
