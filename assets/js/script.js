@@ -13,7 +13,6 @@ function toggleBio() {
 
 let isImageMode = true;
 let swiper;
-let vh = window.innerHeight * 0.01;
 // Then we set the value in the --vh custom property to the root of the document
 
 function switchMode() {
@@ -21,6 +20,7 @@ function switchMode() {
   const contentItems = document.querySelectorAll('.content-item');
   const text = document.getElementById("text");
   const image = document.getElementById("image");
+  let vh = window.innerHeight * 0.01;
   document.documentElement.style.setProperty('--vh', `${vh}px`);
 
   if (isImageMode) {
