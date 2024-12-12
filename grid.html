@@ -57,9 +57,10 @@
 				<a style="text-decoration: none; color: black;" href="index.html">
 					<div class="menu-item">Index/<span style="text-decoration: underline;">Grid</span></div>
 				</a>
-				<div id="title-display" class="menu-item">Title:</div>
 				<!-- <div class="menu-item">About Einar</div> -->
 			</div>
+
+			<div id="title-display">Title:</div>
 
 			<!-- <h1> Hello World!</h1>
 			<p>A <strong>document</strong> by <em>me</em></p> -->
@@ -78,6 +79,30 @@
 
 		<main>
 			<div class="container">
+				<div class="artwork" data-title="Title of the artwork">
+					<img src="assets/images/2024_portfolio_files/editorial/texture/texture_2.jpg">
+				</div>
+				<div class="artwork" data-title="Title of the artwork 2">
+					<img src="assets/images/2024_portfolio_files/editorial/texture/texture_2.jpg">
+				</div>
+				<div class="artwork" data-title="Title of the artwork 3">
+					<img src="assets/images/2024_portfolio_files/editorial/texture/texture_2.jpg">
+				</div>
+				<div class="artwork" data-title="Title of the artwork 4">
+					<img src="assets/images/2024_portfolio_files/editorial/texture/texture_2.jpg">
+				</div>
+				<div class="artwork" data-title="Title of the artwork">
+					<img src="assets/images/2024_portfolio_files/editorial/texture/texture_2.jpg">
+				</div>
+				<div class="artwork" data-title="Title of the artwork 2">
+					<img src="assets/images/2024_portfolio_files/editorial/texture/texture_2.jpg">
+				</div>
+				<div class="artwork" data-title="Title of the artwork 3">
+					<img src="assets/images/2024_portfolio_files/editorial/texture/texture_2.jpg">
+				</div>
+				<div class="artwork" data-title="Title of the artwork 4">
+					<img src="assets/images/2024_portfolio_files/editorial/texture/texture_2.jpg">
+				</div>
 				<div class="artwork" data-title="Title of the artwork">
 					<img src="assets/images/2024_portfolio_files/editorial/texture/texture_2.jpg">
 				</div>
@@ -117,14 +142,6 @@
 </body>
 
 <style>
-	#title-display {
-		overflow: hidden;
-		white-space: nowrap;
-		display: inline-block;
-		border-right: 2px solid black;
-		/* For the typewriter cursor */
-		animation: blink 0.7s step-end infinite;
-	}
 
 	@keyframes blink {
 		50% {
@@ -132,6 +149,17 @@
 		}
 	}
 
+	#title-display {
+		margin-left: 50%;
+		top: 0;
+		position: fixed;
+		overflow: hidden;
+		white-space: nowrap;
+		display: inline-block;
+		border-right: 2px solid black;
+		/* For the typewriter cursor */
+		animation: blink 0.7s step-end infinite;
+	}
 
 	.menu-right {
 		display: flex;
@@ -157,7 +185,7 @@
 		/* border: 1pt greenyellow solid; */
 		box-sizing: border-box;
 		transition: border 0.2s ease-in;
-		border-bottom: 1.2pt orangered solid;
+		border-left: 1.2pt orangered solid;
 		/* Keep the image and overlay inline */
 		/* background-color: greenyellow; */
 	}
@@ -189,6 +217,19 @@
 	}
 
 	@media (max-width: 779px) {
+		
+		#title-display {
+		margin-left: 50%;
+		top: 0;
+		position: fixed;
+		overflow: hidden;
+		white-space: nowrap;
+		display: inline-block;
+		border-right: 2px solid black;
+		/* For the typewriter cursor */
+		animation: blink 0.7s step-end infinite;
+	}
+
 		header {
 			position: fixed;
 			top: 0;
@@ -221,12 +262,6 @@
 			object-fit: contain;
 			/* Ensure the whole image is visible */
 			filter: blur(0);
-		}
-
-		.title {
-			z-index: 999;
-			position: absolute;
-			top: 0;
 		}
 	}
 </style>
