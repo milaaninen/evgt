@@ -164,11 +164,12 @@ main {}
 summary {}
 
 .bio {
-  grid-area: bio;
+  /* grid-area: bio; */
   overflow: hidden;
   height: 0;
   right: 0;
-  background-color: white;
+  padding-top: 0.4rem;
+  /* background-color: white; */
   text-align: left !important;
   backdrop-filter: blur(10px);
   transition: height 0.4s ease-in-out;
